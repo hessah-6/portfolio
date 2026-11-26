@@ -56,8 +56,9 @@ nav.pills{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
 
 /* hero */
 .hero{position:relative;min-height:calc(100svh - 70px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-block:0 32px;margin-top:-70px;box-sizing:border-box}
-.bigword{position:absolute;top:26%;left:50%;transform:translateX(-50%);white-space:nowrap;pointer-events:none;
-  font:400 clamp(60px,18vw,300px)/1 var(--f-mark);color:var(--note);opacity:.55;z-index:0}
+.bigword{position:absolute;top:14%;left:50%;transform:translateX(-50%);white-space:nowrap;pointer-events:none;
+  font:700 clamp(120px,26vw,420px)/1 "Kalam",cursive;color:var(--note);opacity:.38;z-index:0}
+.hero{overflow-x:clip}
 .lanyard{position:relative;z-index:5;width:100%;height:clamp(460px,calc(100svh - 300px),680px);touch-action:none}
 .swing{position:absolute;left:50%;top:0;width:0;height:0;transform-origin:0 0;will-change:transform}
 .strap{position:absolute;left:-11px;top:-1200px;width:22px;background:linear-gradient(90deg,#b80d12,var(--strap) 30%,var(--strap) 70%,#b80d12)}
@@ -78,7 +79,7 @@ nav.pills{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
 .hint{position:relative;z-index:6;margin-top:10px;font:400 15px/1 var(--f-hand);color:var(--ink-soft);display:flex;gap:8px;align-items:center}
 #hint{display:none}
 #worksLabel{display:none}
-:lang(ar) .bigword{font-size:clamp(56px,15vw,250px);font-weight:800;top:22%;line-height:1.1}
+:lang(ar) .bigword{font-family:"Baloo Bhaijaan 2",sans-serif;font-size:clamp(90px,19vw,320px);font-weight:800;top:12%;line-height:1.1}
 .hint svg{width:34px;height:20px}
 .hint svg path{fill:none;stroke:var(--ink-soft);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
@@ -498,7 +499,9 @@ const lanyard = $("lanyard"), swing = $("swing"), strapEl = $("strap"), claspEl 
 let theta = .55, omega = 0, drag = null, len = 300, cw = 260, lastT = 0;
 function sizeBadge(){
   const h = lanyard.clientHeight, w = lanyard.clientWidth;
-  cw = Math.min(300, w*0.62, h*0.5); len = Math.max(60, h - cw*616/476 - 160);
+  const vh = innerHeight;
+  cw = Math.max(170, Math.min(320, w*0.62, vh*0.37)); len = Math.max(50, Math.min(110, vh*0.12));
+  lanyard.style.height = (len + 117 + cw*616/476 + 24) + "px";
   swing.style.setProperty("--cw", cw+"px");
   strapEl.style.height = (len + 1200 + 6) + "px";
   claspEl.style.top = len + "px";
