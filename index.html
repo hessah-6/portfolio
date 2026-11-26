@@ -60,7 +60,7 @@ nav.pills{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
   font:400 clamp(60px,18vw,300px)/1 var(--f-mark);color:var(--note);opacity:.55;z-index:0}
 .lanyard{position:relative;z-index:5;width:100%;height:clamp(460px,calc(100svh - 300px),680px);touch-action:none}
 .swing{position:absolute;left:50%;top:0;width:0;height:0;transform-origin:0 0;will-change:transform}
-.strap{position:absolute;left:-11px;top:-40px;width:22px;background:linear-gradient(90deg,#b80d12,var(--strap) 30%,var(--strap) 70%,#b80d12)}
+.strap{position:absolute;left:-11px;top:-1200px;width:22px;background:linear-gradient(90deg,#b80d12,var(--strap) 30%,var(--strap) 70%,#b80d12)}
 .clasp{position:absolute;left:-30px;width:60px;height:150px;z-index:3;filter:drop-shadow(0 2px 2px rgba(0,0,0,.22))}
 .strap{background:linear-gradient(90deg,#e4141a,#ef1c22 75%,#b80d12)!important}
 .clasp svg{width:100%;height:100%}
@@ -500,7 +500,7 @@ function sizeBadge(){
   const h = lanyard.clientHeight, w = lanyard.clientWidth;
   cw = Math.min(300, w*0.62, h*0.5); len = Math.max(60, h - cw*616/476 - 160);
   swing.style.setProperty("--cw", cw+"px");
-  strapEl.style.height = (len + 40 + 6) + "px";
+  strapEl.style.height = (len + 1200 + 6) + "px";
   claspEl.style.top = len + "px";
   cardEl.style.top = (len + 139 - 22) + "px";
 }
